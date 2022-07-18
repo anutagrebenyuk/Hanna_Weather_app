@@ -62,6 +62,9 @@ ul {
   color: #646fd4;
   font-size: 14px;
 }
+#checkWeather {
+  background: #dbdffd;
+}
 .btn-weather:hover {
   background: #565da0;
   color: #fff;
