@@ -61,20 +61,17 @@
             </div>
         </div>
                   
-            <h2 id="city">Kyiv</h2>
-            <h3 id="curr-date">Monday, 27 June 2022</h3>
-        
+            
         <div class="row">
-          
           <div class="col-2">
             <img src="" 
             alt=""
             id="icon" 
             class="float-left" 
-            width="150">
+            >
           </div>
-          <div class="col-5">
-            
+          
+          <div class="col-3">
             <span id="temperature">19</span>
             <span class="units">
               <a href="#" id="celsius-link">°C</a>
@@ -83,17 +80,23 @@
             </span>
             </div>
                               
-          <div class="col-3">
-            <ul class=""details>   
-              <li>Feels like: <span id="feels-like"></span> </li>  
+          <div class="col-4">
+            <ul class="details">   
+              <li>Feels like: <span id="feels-like"></span> °</li>  
               <li><i class="fa-solid fa-umbrella"></i> Humidity: <span id="humidity"></span>%</li>
               <li><i class="fa-solid fa-wind"></i> Wind: <span id="wind"></span> km/h</li>
-              <li><i class="fa-solid fa-rainbow"></i> <span  id="clouds"> Clouds</p></span>
+              <li><i class="fa-solid fa-rainbow"></i> <span  id="description"> Clouds</span></li>
             </ul>
           </div>
+      
+          <div class="col-3" id="main-info">
+          <h2 id="city">Kyiv</h2>
+            <h3 id="curr-date">Monday, 27 June 2022</h3>
           
+          </div>
         </div>
         <br />
+        <div id="forecast-container">
         <div class="row days">
           <div class="col-2">Tu</div>
           <div class="col-2">We</div>
@@ -130,6 +133,7 @@
           <div class="col-2 individTemp">23°C</div>
           <div class="col-2 individTemp">19°C</div>
           <div class="col-2 individTemp">19°C</div>
+        </div>
         </div>
         <footer>This is an <a class="c" href="https://github.com/anutagrebenyuk/Hanna_Weather_app" target="_blank"> open source</a> code</footer>
       </div>
