@@ -12,7 +12,7 @@ function formattedDate(date) {
     "August",
     "September",
     "November",
-    "December"
+    "December",
   ];
   let days = [
     "Sunday",
@@ -21,7 +21,7 @@ function formattedDate(date) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
   let month = months[date.getMonth()];
   let day = days[date.getDay()];
@@ -48,11 +48,22 @@ function showWeather(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  console.log(response);
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#clouds").innerHTML = response.data.weather[0].main;
+  document.querySelector("#clouds").innerHTML =
+    response.data.weather[0].description;
 }
 
 function updateCity(event) {

@@ -8,7 +8,10 @@ h3 {
 }
 ul {
   list-style: none;
+  font-size: 16px;
+  padding: 20px 0 0 0;
 }
+
 footer {
   text-align: center;
   font-size: 12px;
@@ -27,6 +30,13 @@ footer {
   font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.5;
+}
+#clouds {
+  text-transform: capitalize;
+}
+ul.details {
+  font-size: 10px;
+  padding: 0px;
 }
 
 .days {
