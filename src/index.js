@@ -44,33 +44,31 @@ formattedDate(now);
 
 //To update name of searched city
 function showWeather(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document
-    .querySelector("#icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document
-    .querySelector("#icon")
-    .setAttribute(
-      "alt",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
-    );
+  let cityElement = document.querySelector("#city");
+  let tempElement = document.querySelector("#temperature");
+  let iconElement = document.querySelector("#icon");
+  let feelsLikeElement = document.querySelector("#feels-like");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let descriptionElement = document.querySelector("#description");
+  feelsLikeTemp = response.data.main.feels_like;
 
-  console.log(response);
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    response.data.main.feels_like
+  celsiusTemp = response.data.main.temp;
+  tempElement.innerHTML = Math.round(celsiusTemp);
+
+  cityElement.innerHTML = response.data.name;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
+  iconElement.setAttribute(
+    "alt",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
   );
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].description;
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function updateCity(event) {
@@ -101,19 +99,28 @@ function searchLocation(position) {
 let buttonCurrLocation = document.querySelector(".btn-location");
 buttonCurrLocation.addEventListener("click", showPosition);
 
-//Challenge 3
-function convertToCelcius(event) {
-  event.preventDefault();
-  let celciusTemp = document.querySelector("#temperature");
-  celciusTemp.innerHTML = 23;
-}
+//Units conversion
+
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let fahrenheitTemp = document.querySelector("#temperature");
-  fahrenheitTemp.innerHTML = 73;
-  //Math.round((temperature * 9) / 5 + 32);
+  let tempElement = document.querySelector("#temperature");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    (feelsLikeTemp * 9) / 5 + 32
+  );
 }
-let celciusLink = document.querySelector("#celsius-link");
-celciusLink.addEventListener("click", convertToCelcius);
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temperature");
+  tempElement.innerHTML = Math.round(celsiusTemp);
+  document.querySelector("#feels-like").innerHTML = Math.round(feelsLikeTemp);
+}
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
+
+let celsiusTemp = null;
+let feelsLikeTemp = null;
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
