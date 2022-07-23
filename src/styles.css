@@ -92,6 +92,13 @@ ul.details {
   margin: 0 auto;
   padding: 0;
 }
+.units .active {
+  color: grey;
+  cursor: default;
+}
+.units .active:hover {
+  text-decoration: none;
+}
 
 #checkWeather {
   background: #dbdffd;

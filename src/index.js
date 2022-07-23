@@ -109,6 +109,8 @@ function convertToFahrenheit(event) {
   document.querySelector("#feels-like").innerHTML = Math.round(
     (feelsLikeTemp * 9) / 5 + 32
   );
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 
 function convertToCelsius(event) {
@@ -116,6 +118,8 @@ function convertToCelsius(event) {
   let tempElement = document.querySelector("#temperature");
   tempElement.innerHTML = Math.round(celsiusTemp);
   document.querySelector("#feels-like").innerHTML = Math.round(feelsLikeTemp);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
