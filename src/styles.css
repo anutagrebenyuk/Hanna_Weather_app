@@ -56,6 +56,13 @@ a {
   font-weight: 400;
   line-height: 1.5;
 }
+.units .active {
+  color: grey;
+  cursor: default;
+}
+.units .active:hover {
+  text-decoration: none;
+}
 ul.details {
   position: relative;
   top: 15px;
@@ -91,13 +98,6 @@ ul.details {
   text-align: center;
   margin: 0 auto;
   padding: 0;
-}
-.units .active {
-  color: grey;
-  cursor: default;
-}
-.units .active:hover {
-  text-decoration: none;
 }
 
 #checkWeather {
